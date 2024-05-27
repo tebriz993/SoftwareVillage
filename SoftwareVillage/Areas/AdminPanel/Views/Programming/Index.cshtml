@@ -1,0 +1,109 @@
+﻿@using SoftwareVillage.Models;
+@model List<Programming>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kurs əlave et</h4>
+
+            <a asp-controller="Programming" asp-action="Create" type="button" class="btn btn-info">Kurs əlave et</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sıra nömrəsi
+                            </th>
+                            <th>
+                                Başlıq
+                            </th>
+                            <th>
+                                Altbaşlıq
+                            </th>
+                            <th>
+                                Pul ikonu
+                            </th>
+                            <th>
+                                Ödəniş miqdarı
+                            </th>
+                            <th>
+                                Müddət
+                            </th>
+                            <th>
+                                Təsvir1
+                            </th>
+                            <th>
+                                Təsvir2
+                            </th>
+                            <th>
+                                Təsvir3
+                            </th>
+                            <th>
+                                Təsvir4
+                            </th>
+                            <th>
+                                Təsvir5
+                            </th>
+                            <th>
+                                Ayarlar
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Programming item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td>
+                                    @item.BlogTitle
+                                </td>
+                                <td>
+                                    @item.BlogSubtitle
+                                </td>
+                                <td>
+                                    @item.SignOfMoney
+                                </td>
+                                <td>
+                                    @item.Payment
+                                </td>
+                                <td>
+                                    @item.Time
+                                </td>
+                                <td>
+                                    @item.Description1
+                                </td>
+                                <td>
+                                    @item.Description2
+                                </td>
+                                <td>
+                                    @item.Description3
+                                </td>
+                                <td>
+                                    @item.Description4
+                                </td>
+                                <td>
+                                    @item.Description5
+                                </td>
+                                <td>
+                                    <a asp-controller="Programming" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Programming" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

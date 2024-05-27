@@ -1,0 +1,108 @@
+﻿@model SoftwareVillage.ViewModels.Programming_VM
+@using SoftwareVillage.Models
+
+
+
+<div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+    <div class="row py-5">
+        <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+            <a href="" class="h5 text-white">Kurslar</a>
+            <h1 class="display-4 text-white animated zoomIn">Proqramlaşdırma</h1>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Carousel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    
+</head>
+<body>
+
+   
+
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var item in Model.CarouselProgrammings)
+            {
+                <div class="carousel-item @(item.Id == 1 ? "active" : "")" style="background-color: white;">
+                    <div style="padding: 0 15px; margin: 0 auto; max-width: 1200px;">
+                        <img class="w-100" src="~/assets/img/@item.Image" alt="Image" style="object-fit: cover; height: 600px;">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-end">
+                            <div class="p-3" style="max-width: 1000px;">
+                                <h1 class="display-1 text-white mb-md-4 animated zoomIn" style="font-size: 50px;">@item.Title</h1>
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown" style="font-size: 14px;">@item.Subtitle</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            }
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+
+
+<!-- Pricing Plan Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.4s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-primary text-uppercase">Pricing Plans</h5>
+            <h1 class="mb-0">We are Offering Competitive Prices for Our Clients</h1>
+        </div>
+        <div class="row g-0">
+            @foreach (var item1 in Model.Programmings)
+            {
+                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                    <div class="bg-light rounded">
+                        <div class="border-bottom py-4 px-5 mb-4">
+                            <h4 class="text-primary mb-1">@item1.BlogTitle</h4>
+                            <small class="text-uppercase">@item1.BlogSubtitle</small>
+                        </div>
+
+                        <div class="p-5 pt-0">
+                            <h1 class="display-5 mb-3">
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;">@item1.SignOfMoney</small>@item1.Payment<small class="align-bottom" style="font-size: 16px; line-height: 40px;">/ @item1.Time</small>
+                            </h1>
+
+                            <div class="d-flex justify-content-between mb-3"><span>@item1.Description1</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>@item1.Description2</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>@item1.Description3</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>@item1.Description4</span><i class="fa fa-check text-primary pt-1"></i></div>
+                            <div class="d-flex justify-content-between mb-3"><span>@item1.Description5</span><i class="fa fa-check text-primary pt-1"></i></div>
+
+                            <a asp-controller="Muraciet" asp-action="Index" class="btn btn-primary py-2 px-4 mt-4">Müraciət edin</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+<!-- Pricing Plan End -->
+
+</body>
+</html>

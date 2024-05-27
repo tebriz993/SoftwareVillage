@@ -1,0 +1,109 @@
+﻿@using SoftwareVillage.Models;
+@model List<Down_SoftwareVillage>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Down_SoftwareVillage</h4>
+
+            <a asp-controller="Down_SoftwareVillage" asp-action="Create" type="button" class="btn btn-info">Yarat</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sıra nömrəsi
+                            </th>
+
+                            <th>
+                                Ikon1
+                            </th>
+                            <th>
+                                Başlıq1
+                            </th>
+                            <th>
+                                Muəllim sayı
+                            </th>
+                            <th>
+                                Ikon2
+                            </th>
+                            <th>
+                                Başlıq2
+                            </th>
+                            <th>
+                                Tələbə sayı
+                            </th>
+                            <th>
+                                Ikon3
+                            </th>
+                            <th>
+                                Başlıq3
+                            </th>
+                            <th>
+                                Partnyor sayı
+                            </th>
+
+                            <th>
+                                Ayarlar
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                        @foreach (Down_SoftwareVillage item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td>
+                                    @item.Icon1
+                                </td>
+                                <td>
+                                    @item.Title1
+                                </td>
+                                <td>
+                                    @item.MaxCountOfTeachers
+                                </td>
+                                <td>
+                                    @item.Icon2
+                                </td>
+                                <td>
+                                    @item.Title2
+                                </td>
+                                <td>
+                                    @item.MaxCountOfStudents
+                                </td>
+                                <td>
+                                    @item.Icon3
+                                </td>
+                                <td>
+                                    @item.Title3
+                                </td>
+                                <td>
+                                    @item.MaxCountOfPartnyors
+                                </td>
+
+                                <td>
+                                    <a asp-controller="Down_SoftwareVillage" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Down_SoftwareVillage" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/65d861d288.js" crossorigin="anonymous"></script>

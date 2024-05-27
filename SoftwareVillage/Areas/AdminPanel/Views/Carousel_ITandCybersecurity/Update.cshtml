@@ -1,0 +1,41 @@
+﻿@using SoftwareVillage.Models;
+@model Carousel_ITAndCybersecurity
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Redaktə et</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div>
+                                <img src="~/assets/img/@Model.Image" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" type="file" class="form-control" placeholder="photo" />
+
+                                <span asp-validation-for="Photo"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" type="text" class="form-control" value="@Model.Title" placeholder="Name" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle">Subtitle</label>
+                                <input asp-for="Subtitle" type="text" class="form-control" value="@Model.Subtitle" placeholder="Name" />
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

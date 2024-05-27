@@ -1,0 +1,65 @@
+﻿@using SoftwareVillage.Models;
+@model Niye_SoftwareVillage
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Redaktə et</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div>
+                                <img src="~/assets/img/@Model.Image" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" type="file" class="form-control" placeholder="photo" />
+
+                                <span asp-validation-for="Photo"></span>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label asp-for="Title1">Haqqında</label>
+                                <input asp-for="Title1" type="text" class="form-control" placeholder="Başlıq1" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle1">Subtitle</label>
+                                <input asp-for="Subtitle1" type="text" class="form-control" placeholder="Altbaşlıq1" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title2">Haqqında</label>
+                                <input asp-for="Title2" type="text" class="form-control" placeholder="Başlıq2" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle2">Subtitle</label>
+                                <input asp-for="Subtitle2" type="text" class="form-control" placeholder="Altbaşlıq2" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title3">Haqqında</label>
+                                <input asp-for="Title3" type="text" class="form-control" placeholder="Başlıq3" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle3">Subtitle</label>
+                                <input asp-for="Subtitle3" type="text" class="form-control" placeholder="Altbaşlıq3" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title4">Haqqında</label>
+                                <input asp-for="Title4" type="text" class="form-control" placeholder="Başlıq4" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle4">Subtitle</label>
+                                <input asp-for="Subtitle4" type="text" class="form-control" placeholder="Altbaşlıq4" />
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                            <button class="btn btn-light">Ləğv et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

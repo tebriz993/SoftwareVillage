@@ -1,0 +1,58 @@
+﻿@using SoftwareVillage.Models;
+@model Muraciet
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Muracietler</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                           
+                            <div class="form-group">
+                                <label asp-for="Bigtitle">Title</label>
+                                <input asp-for="Bigtitle" type="text" class="form-control" placeholder="Başlıq" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Icon1">Title</label>
+                                <input asp-for="Icon1" type="text" class="form-control" placeholder="Başlıq" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Smalltitle1">Kiçikbaşlıq1</label>
+                                <input asp-for="Smalltitle1" type="text" class="form-control" placeholder="Kiçikbaşlıq1" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Icon2">Title</label>
+                                <input asp-for="Icon2" type="text" class="form-control" placeholder="Başlıq" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Smalltitle2">Kiçikbaşlıq2</label>
+                                <input asp-for="Smalltitle2" type="text" class="form-control" placeholder="Kiçikbaşlıq2" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Subtitle">Altbaşlıq</label>
+                                <input asp-for="Subtitle" type="text" class="form-control" placeholder="Altbaşlıq" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Icon3">Title</label>
+                                <input asp-for="Icon3" type="text" class="form-control" placeholder="Başlıq" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Smalltitle3">Kiçikbaşlıq3</label>
+                                <input asp-for="Smalltitle3" type="text" class="form-control" placeholder="Kiçikbaşlıq3" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Number">Nömrə</label>
+                                <input asp-for="Number" type="text" class="form-control" placeholder="Nömrə" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                            <button class="btn btn-light">Ləğv et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

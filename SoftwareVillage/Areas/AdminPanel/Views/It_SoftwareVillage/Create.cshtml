@@ -1,0 +1,37 @@
+﻿@using SoftwareVillage.Models;
+@model It_SoftwareVillage
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Haqqımızda</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label asp-for="Photo">Şəkil</label>
+                                <input asp-for="Photo" type="file" class="form-control" placeholder="Photo" />
+
+                                <span asp-validation-for="Photo"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BigTitle">Başlıq</label>
+                                <input asp-for="BigTitle" type="text" class="form-control" placeholder="Başlıq" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="LittleTitle">Altbaşlıq</label>
+                                <input asp-for="LittleTitle" type="text" class="form-control" placeholder="Altbaşlıq" />
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                            <button class="btn btn-light">Ləğv et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

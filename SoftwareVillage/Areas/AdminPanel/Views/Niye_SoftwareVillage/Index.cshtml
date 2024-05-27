@@ -1,0 +1,107 @@
+﻿@using SoftwareVillage.Models;
+@model List<Niye_SoftwareVillage>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Niyə Software Village?</h4>
+
+            <a asp-controller="Niye_SoftwareVillage" asp-action="Create" type="button" class="btn btn-info">Əlavə edin</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sıra nömrəsi
+                            </th>
+                            <th>
+                                Başlıq1
+                            </th>
+                            <th>
+                                Altbaşlıq1
+                            </th>
+                            <th>
+                                Başlıq2
+                            </th>
+                            <th>
+                                Altbaşlıq2
+                            </th>
+                           
+                            <th>
+                                Şəkil
+                            </th>
+                            <th>
+                                Başlıq3
+                            </th>
+                            <th>
+                                Altbaşlıq3
+                            </th>
+                            <th>
+                                Başlıq4
+                            </th>
+                            <th>
+                                Altbaşlıq4
+                            </th>
+                            <th>
+                                Ayarlar
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                        @foreach (Niye_SoftwareVillage item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td>
+                                    @item.Title1
+                                </td>
+                                <td>
+                                    @item.Subtitle1
+                                </td>
+                                <td>
+                                    @item.Title2
+                                </td>
+                                <td>
+                                    @item.Subtitle2
+                                </td>
+                                <td class="py-1">
+                                    <img src="~/assets/img/@item.Image" alt="image" />
+                                </td>
+                                <td>
+                                    @item.Title3
+                                </td>
+                                <td>
+                                    @item.Subtitle3
+                                </td>
+                                <td>
+                                    @item.Title4
+                                </td>
+                                <td>
+                                    @item.Subtitle4
+                                </td>
+                                
+                                <td>
+                                    <a asp-controller="Niye_SoftwareVillage" asp-action="update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Niye_SoftwareVillage" asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

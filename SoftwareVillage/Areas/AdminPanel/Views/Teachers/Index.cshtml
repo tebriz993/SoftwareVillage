@@ -1,0 +1,78 @@
+﻿@using SoftwareVillage.Models;
+@model List<AkademiyaTeachers>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Əlavə et</h4>
+
+            <a asp-controller="Teachers" asp-action="Create" type="button" class="btn btn-info">Şəxs əlavə et</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sıra nömrəsi
+                            </th>
+                            <th>
+                                Şəkil
+                            </th>
+                            <th>
+                                Sosial Media adresi
+                            </th>
+                            <th>
+                                Ad və Soyad
+                            </th>
+                            
+                            <th>
+                                Vəzifə
+                            </th>
+                           
+                            <th>
+                                Setting
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (AkademiyaTeachers item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+
+                                <td class="py-1">
+                                    <img src="~/assets/img/@item.Image" alt="image" />
+                                </td>
+
+                                <td>
+                                    @item.SocialMedia.FacebookLink  @item.SocialMedia.InstagramLink  @item.SocialMedia.LinkedlnLink  @item.SocialMedia.TwitterLink
+                                </td>
+
+                                <td>
+                                    @item.FullName
+                                </td>
+                                <td>
+                                    @item.Profession.Name
+                                </td>
+                                <td>
+                                    <a asp-controller="Teachers" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Teachers" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

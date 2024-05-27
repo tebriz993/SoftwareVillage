@@ -1,0 +1,68 @@
+﻿@using SoftwareVillage.Models;
+@model AkademiyaTeachers
+
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Əlavə et</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                <div>
+                    <img src="~/assets/img/@Model.Image" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Şəkil</label>
+                    <input asp-for="Photo" type="file" class="form-control" placeholder="Şəkil" />
+
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SocialMediaId">
+                        Bootkamp
+                    </label>
+                    <select asp-for="SocialMediaId">
+                        <option selected disabled>Seçim</option>
+                        @foreach (SocialMedias item in ViewBag.SocialMedias)
+                        {
+                            <option value="@item.Id">@item.FacebookLink  @item.InstagramLink  @item.LinkedlnLink  @item.TwitterLink</option>
+                        }
+
+                        <span asp-validation-for="SocialMediaId"></span>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FullName">
+                        Ad və Soyad
+                    </label>
+                    <input asp-for="FullName" type="text" class="form-control" placeholder="Ad və Soyad" value="@Model.FullName" />
+                    <span asp-validation-for="FullName"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="ProfessionId">
+                        Vezife
+                    </label>
+                    <select asp-for="ProfessionId">
+                        <option selected disabled>Seçim</option>
+                        @foreach (Professions item in ViewBag.Professions)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+
+                        <span asp-validation-for="ProfessionId"></span>
+                    </select>
+
+                </div>
+                
+
+                <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                <button class="btn btn-light">Ləğv et</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>

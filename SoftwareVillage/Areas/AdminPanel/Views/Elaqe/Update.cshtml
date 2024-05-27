@@ -1,0 +1,47 @@
+﻿@using SoftwareVillage.Models;
+@model Relation
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Redaktə et</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+
+                            <div class="form-group">
+                                <label asp-for="Number_Title">Nömrə Başlığı</label>
+                                <input asp-for="Number_Title" type="text" class="form-control" value="@Model.Number_Title" placeholder="Nömrə Başlığı" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Number">Nömrə</label>
+                                <input asp-for="Number" type="text" class="form-control" value="@Model.Number" placeholder="Nömrə" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email_Title">Email Başlığı</label>
+                                <input asp-for="Email_Title" type="text" class="form-control" value="@Model.Email_Title" placeholder="Email Başlığı" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email">Email</label>
+                                <input asp-for="Email" type="text" class="form-control" value="@Model.Email" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address_Title">Adres Başlığı</label>
+                                <input asp-for="Address_Title" type="text" value="@Model.Address_Title" class="form-control" placeholder="Adres Başlığı" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address">Adres</label>
+                                <input asp-for="Address" type="text" class="form-control" value="@Model.Address" placeholder="Adres" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                            <button class="btn btn-light">Ləğv et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

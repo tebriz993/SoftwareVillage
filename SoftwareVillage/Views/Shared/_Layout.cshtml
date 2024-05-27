@@ -1,0 +1,241 @@
+﻿@using SoftwareVillage.Services;
+@inject LayoutService service
+
+@{
+    Dictionary<string, string> setting = await service.GetSettingAsync();
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Startup - Startup Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="~/assets/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>@setting["Address"]</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>@setting["Number"]</small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>@setting["Email"]</small>
+
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="_blank" href="@setting["LinkTwitter"]"><i class="@setting["Twitter"]"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="_blank" href="@setting["LinkFacebook"]"><i class="@setting["Facebook"]"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="_blank" href="@setting["LinkInstagram"]"><i class="@setting["Instagram"]"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" target="_blank" href="@setting["LinkYoutube"]"><i class="@setting["YouTube"]"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" target="_blank" href="@setting["LinkLinkedIn"]"><i class="@setting["LinkedIn"]"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a asp-controller="SoftwareVillage" asp-action="Index" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="@setting["CompanyIcon"]">@setting["CompanyName"]</i></h1> @* fa fa-user-tie me-2 *@
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    @* <a href="index.html" class="nav-item nav-link active">Home</a> *@
+                    <!--<a href="about.html" class="nav-item nav-link">Haqqimizda</a>-->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Akademiya</a>
+                        <div class="dropdown-menu m-0">
+                            <a asp-controller="AkademiyaAboutUs" asp-action="Index" class="dropdown-item">Haqqımızda</a>
+                            <a asp-controller="AkademiyaVizyon" asp-action="Index" class="dropdown-item">Missiyamız</a>
+                            <a asp-controller="AkademiyaTeachers" asp-action="Index" class="dropdown-item">Təlimçilərimiz</a>
+                            <a asp-controller="AkademiyaPartnyorlar" asp-action="Index" class="dropdown-item">Partnyorlarımız</a>
+                            <a asp-controller="AkademiyaNiye_Software_Village" asp-action="Index" class="dropdown-item">Niyə Software Village?</a>
+                        </div>
+                    </div>
+
+                    @* <a href="service.html" class="nav-item nav-link">Kusrlar</a> *@
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kurslar</a>
+                        <div class="dropdown-menu m-0">
+                            <a asp-controller="KurslarProgramming" asp-action="Index" class="dropdown-item">Proqramlaşdırma</a>
+                            <a asp-controller="KurslarITandCybersecurity" asp-action="Index" class="dropdown-item">İT və Kibertəhlükəsizlik</a>
+                            <a asp-controller="KurslarDesign" asp-action="Index" class="dropdown-item">Dizayn</a>
+                            <a asp-controller="kurslarDataScience" asp-action="Index" class="dropdown-item">Data Analitika</a>
+                           @*  <a asp-controller="KurslarOther" asp-action="Index" class="dropdown-item">Digər</a> *@
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Karyeranı qur</a>
+                        <div class="dropdown-menu m-0">
+                            <a asp-controller="KaryeranıQur_UğurluTələbələrimiz" asp-action="Index" class="dropdown-item">Uğurlu Tələbələrimiz</a>
+                            @* <a href="feature.html" class="dropdown-item">Ourfeatures</a> *@
+                        </div>
+                    </div>
+
+                    <a asp-controller="ElaqeRelation" asp-action="Index" class="nav-item nav-link">Əlaqə</a>
+                </div>
+                <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a asp-controller="Muraciet" asp-action="Index" class="btn btn-primary py-2 px-4 ms-3">Müraciət etməyə tələsin</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    
+
+    
+    @RenderBody();
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
+                        <a href="index.html" class="navbar-brand">
+                            <h1 class="m-0 text-white"><i class="@setting["CompanyIcon"]"></i>@setting["CompanyName"]</h1>
+                        </a>
+                        <p class="mt-3 mb-4">@setting["DownText"]</p>
+                       @*  <form action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-white p-3" placeholder="Your Email">
+                                <button class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </form> *@
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Əlaqə</h3>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <p class="mb-0">@setting["Address"]</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-primary me-2"></i>
+                                <p class="mb-0">@setting["Email"]</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-primary me-2"></i>
+                                <p class="mb-0">@setting["Number"]</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-primary btn-square me-2" target="_blank" href="@setting["LinkTwitter"]"><i class="@setting["Twitter"]"></i></a>
+                                <a class="btn btn-primary btn-square me-2" target="_blank" href="@setting["LinkFacebook"]"><i class="@setting["Facebook"]"></i></a>
+                                <a class="btn btn-primary btn-square me-2" target="_blank" href="@setting["LinkLinkedIn"]"><i class="@setting["LinkedIn"]"></i></a>
+                                <a class="btn btn-primary btn-square" target="_blank" href="@setting["LinkInstagram"]"><i class="@setting["Instagram"]"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Populyar linklər</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" asp-controller="SoftwareVillage" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Software Village</a>
+                                <a class="text-light mb-2" asp-controller="AkademiyaAboutUs" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Haqqımızda</a>
+                                <a class="text-light mb-2" asp-controller="AkademiyaVizyon" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Missiyamız</a>
+                                <a class="text-light mb-2" asp-controller="AkademiyaTeachers" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Təlimçilərimiz</a>
+                                <a class="text-light mb-2" asp-controller="AkademiyaPartnyorlar" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Partnyorlarımız</a>
+                                <a class="text-light" asp-controller="AkademiyaNiye_Software_Village" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Niyə Software Village?</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Cəld Linklər</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" asp-controller="KurslarProgramming" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Proqramlaşdırma</a>
+                                <a class="text-light mb-2" asp-controller="KurslarITandCybersecurity" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>IT və Kibertəhlükəsizlik</a>
+                                <a class="text-light mb-2" asp-controller="KurslarDesign" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Dizayn</a>
+                                <a class="text-light mb-2" asp-controller="KurslarDataScience" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Data Analitika</a>
+                                <a class="text-light mb-2" asp-controller="KaryeranıQur_UğurluTələbələrimiz" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Uğurlu tələbələrimiz</a>
+                                <a class="text-light" asp-controller="ElaqeRelation" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Əlaqə</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-white" style="background: #061429;">
+        <div class="container text-center">
+            <div class="row justify-content-end">
+                <div class="col-lg-8 col-md-6">
+                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                        <p class="mb-0">
+                            &copy; <a class="text-white border-bottom" href="#">Software Village.</a>Müəllif hüquqları qorunur.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+    @RenderSection("Scripts",required: false)
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/lib/wow/wow.min.js"></script>
+    <script src="~/assets/lib/easing/easing.min.js"></script>
+    <script src="~/assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/assets/lib/counterup/counterup.min.js"></script>
+    <script src="~/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>

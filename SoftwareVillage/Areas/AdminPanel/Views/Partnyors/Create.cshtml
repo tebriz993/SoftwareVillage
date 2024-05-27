@@ -1,0 +1,29 @@
+﻿@using SoftwareVillage.Models;
+@model Partnyors
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Partnyorlarımız</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label asp-for="Photo">Şəkil</label>
+                                <input asp-for="Photo" type="file" class="form-control" placeholder="Photo" />
+
+                                <span asp-validation-for="Photo"></span>
+                            </div>
+                            
+
+
+                            <button type="submit" class="btn btn-primary me-2">Yadda saxla</button>
+                            <button class="btn btn-light">Ləğv et</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

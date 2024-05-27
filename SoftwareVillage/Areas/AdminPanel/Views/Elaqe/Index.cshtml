@@ -1,0 +1,91 @@
+﻿@using SoftwareVillage.Models;
+@model List<Relation>
+
+@{
+    int count = 1;
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Vizyonumuz</h4>
+
+            <a asp-controller="Elaqe" asp-action="Create" type="button" class="btn btn-info">Yarat</a>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sıra nömrəsi
+                            </th>
+                           
+                            <th>
+                                Nömrə başlığı
+                            </th>
+                            <th>
+                                Nömrə
+                            </th>
+                            <th>
+                                Email başlığı
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Adres başlığı
+                            </th>
+                            <th>
+                                Adres
+                            </th>
+                            
+                            <th>
+                                Ayarlar
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                        @foreach (Relation item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @(count++)
+                                </td>
+                                <td>
+                                    @item.Number_Title
+                                </td>
+                                <td>
+                                    @item.Number
+                                </td>
+                                <td>
+                                    @item.Email_Title
+                                </td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td>
+                                    @item.Address_Title
+                                </td>
+                                <td>
+                                    @item.Address
+                                </td>
+                                
+                                <td>
+                                    <a asp-controller="Elaqe" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning"><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a asp-controller="Elaqe" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/65d861d288.js" crossorigin="anonymous"></script>
